@@ -1,6 +1,7 @@
 const express = require('express')
 const fs = require('fs')
 const path = require('path')
+const sensor = require('./lib/sensor')
 const app = express()
 
 app.set('view engine', 'pug')
@@ -11,11 +12,7 @@ app.get('/', async (req, res) => {
 	const sass = require('sass');
 	let result = sass.renderSync({file: './assets/scss/main.scss'});
 	fs.writeFile('./public/app.css', result.css);
-
-	let data = {
-		temperature: 22.4,
-		humidity: 54.2
-	}
+	let data = await Sensor.getValues();
 	res.render('index', {data});
 })
 
