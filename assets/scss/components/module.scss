@@ -1,0 +1,72 @@
+.Modules {
+	padding: 1em;
+	align-items: right;
+
+	@include bp(md) {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		margin-left: -$space;
+	}
+
+	.Module {
+		background-color: $color-neutral-dark;
+		background-image: lineargradient(to bottom, $color-neutral-dark, darken($color-neutral-dark, 15%));
+		color: $color-white;
+		border-radius: .5em;
+		text-align: center;
+		position: relative;
+		margin-bottom: $space;
+
+		@include bp(md) {
+			flex: 1;
+			margin-left: $space;
+			max-width: 30em;
+		}
+
+		h2 {
+			font-size: 1em;
+			padding: $space-sm;
+			margin-bottom: $space-sm;
+			background-color: rgba($color-white, .03);
+		}
+	}
+
+	.Module-value {
+		padding: $space-sm;
+
+		@include bp(md) {
+			padding: $space;
+		}
+
+		h3 {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 2em;
+			font-weight: bold;
+			letter-spacing: -0.05em;
+			font-weight: lighter;
+
+			@include bp(md) {
+				font-size: 5em;
+			}
+		}
+
+		sup {
+			display: none;
+		}
+	}
+
+	.Module-chart {
+		.value {
+			stroke: $color-primary;
+			transform: rotate(-90deg);
+			transform-origin: 50%;
+			fill: none;
+			transition: stroke-dashoffset 1s;
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "vinshlouser",
+  "version": "1.0.0",
+  "description": "Vinshlouser! VINSHLOUSER!!",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^4.0.2",
+    "sass": "^1.14.3"
+  },
+  "scripts": {
+    "dev": "gulp dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

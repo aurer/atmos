@@ -1,0 +1,102 @@
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type='text'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+input[type='time'],
+input[type='number'],
+textarea,
+select {
+  height: $space-md;
+  padding: $space-xs $space-sm;
+  border: 1px solid $color-neutral-light;
+  box-shadow: none;
+  background-color: $color-white;
+  color: $color-neutral-darker;
+  line-height: normal;
+  vertical-align: middle;
+
+  &:focus {
+    border: 1px solid $color-primary;
+    outline: 0;
+  }
+}
+
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  overflow: auto;
+}
+
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  padding: 0;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}

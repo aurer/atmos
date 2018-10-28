@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width,initial-scale=1.0")
+		meta(name="description", content="Atmospheric information center")
+		title Atmos
+		link(rel="icon", href="/favicon.png")
+		link(rel="stylesheet", href="/css/main.css")
+	body
+		.App
+			.Modules
+				.Module.Module--temperature(style="--value:"+data.temperature, data-value=data.temperature)
+					h2 Temperature
+					.Module-value
+						h3 #{data.temperature}
+							sup &deg;
+						<svg class="Module-chart" viewbox="0 0 100 100">
+							<circle class="value" cx="50" cy="50" r="47" stroke-width="6"></circle>
+						</svg>
+
+				.Module.Module--humidity(style="--value:"+data.humidity, data-value=data.humidity)
+					h2 Humidity
+					.Module-value
+						h3 #{data.humidity}
+							sup %
+						<svg class="Module-chart" viewbox="0 0 100 100">
+							<circle class="value" cx="50" cy="50" r="47" stroke-width="6"></circle>
+						</svg>
+		script(src="/js/main.js")

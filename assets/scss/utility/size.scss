@@ -1,0 +1,9 @@
+@mixin Size($a, $b) {
+	width: ($a / $b) * 100%;
+}
+
+@mixin SizeAt($a, $b, $mq) {
+	@include bp($mq) {
+		@include Size($a, $b);
+	}
+}
