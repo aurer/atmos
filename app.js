@@ -1,7 +1,6 @@
 const express = require('express')
 const fs = require('fs')
 const path = require('path')
-const Weather = require('./lib/weather')
 const app = express()
 
 app.set('view engine', 'pug')
