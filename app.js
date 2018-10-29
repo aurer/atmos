@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const config = require('./config.json')
 const Sensor = require('./lib/sensor')
 const app = express()
 
@@ -8,7 +9,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res) => {
-	let data = await Sensor.getValues();
+	let data = config.mock ? await Sensor.mockValues() : await Sensor.getValues();
 	res.render('index', {data});
 })
 
