@@ -32,9 +32,7 @@ gulp.task('watch', function() {
 // Setup local server with injection
 gulp.task('serve', function() {
 	server.init({
-		proxy: 'http://localhost:8000',
-		host: 'localhost',
-		open: 'external',
+		proxy: 'localhost:8000',
 		notify: false
 	});
 });
