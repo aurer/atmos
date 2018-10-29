@@ -27,4 +27,12 @@ html(lang="en")
 							<circle class="base" cx="50" cy="50" r="47" stroke-width="6"></circle>
 							<circle class="value" cx="50" cy="50" r="47" stroke-width="6"></circle>
 						</svg>
+				.Module.Module--water(style="--value:"+data.water, data-value=data.water)
+					h2 Water
+					.Module-value
+						h3 #{data.water}
+						<svg class="Module-chart" viewbox="0 0 100 100">
+							<circle class="base" cx="50" cy="50" r="47" stroke-width="6"></circle>
+							<circle class="value" cx="50" cy="50" r="47" stroke-width="6"></circle>
+						</svg>
 		script(src="/js/main.js")
