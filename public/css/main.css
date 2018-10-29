@@ -331,31 +331,45 @@ samp {
     .Modules .Module h2 {
       font-size: 1em;
       padding: 0.75rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0;
       background-color: rgba(255, 255, 255, 0.03); }
+      @media (min-width: 36em) {
+        .Modules .Module h2 {
+          margin-bottom: 0.75rem; } }
   .Modules .Module-value {
-    padding: 0.75rem; }
+    padding: 0.75rem;
+    display: flex;
+    align-items: center; }
     @media (min-width: 36em) {
       .Modules .Module-value {
-        padding: 1.5rem; } }
+        display: block; } }
     .Modules .Module-value h3 {
-      position: absolute;
-      width: 100%;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2em;
+      flex: 1;
+      font-size: 4em;
+      margin-right: 0.75rem;
       font-weight: bold;
       letter-spacing: -0.05em;
-      font-weight: lighter; }
+      font-weight: lighter;
+      line-height: 1; }
       @media (min-width: 36em) {
         .Modules .Module-value h3 {
-          font-size: 5em; } }
+          position: absolute;
+          width: 100%;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 5em;
+          margin: 0; } }
     .Modules .Module-value sup {
       display: none; }
-  .Modules .Module-chart .value {
-    stroke: #0095ff;
-    transform: rotate(-90deg);
-    transform-origin: 50%;
-    fill: none;
-    transition: stroke-dashoffset 1s; }
+  .Modules .Module-chart {
+    flex: 1; }
+    .Modules .Module-chart .base {
+      stroke: #434961;
+      fill: none; }
+    .Modules .Module-chart .value {
+      stroke: #0095ff;
+      transform: rotate(-90deg);
+      transform-origin: 50%;
+      fill: none;
+      transition: stroke-dashoffset 1s; }

@@ -14,8 +14,8 @@ html(lang="en")
 					h2 Temperature
 					.Module-value
 						h3 #{data.temperature}
-							sup &deg;
 						<svg class="Module-chart" viewbox="0 0 100 100">
+							<circle class="base" cx="50" cy="50" r="47" stroke-width="6"></circle>
 							<circle class="value" cx="50" cy="50" r="47" stroke-width="6"></circle>
 						</svg>
 
@@ -23,8 +23,8 @@ html(lang="en")
 					h2 Humidity
 					.Module-value
 						h3 #{data.humidity}
-							sup %
 						<svg class="Module-chart" viewbox="0 0 100 100">
+							<circle class="base" cx="50" cy="50" r="47" stroke-width="6"></circle>
 							<circle class="value" cx="50" cy="50" r="47" stroke-width="6"></circle>
 						</svg>
 		script(src="/js/main.js")

@@ -27,31 +27,41 @@
 		h2 {
 			font-size: 1em;
 			padding: $space-sm;
-			margin-bottom: $space-sm;
+			margin-bottom: 0;
 			background-color: rgba($color-white, .03);
+
+			@include bp(md) {
+				margin-bottom: $space-sm;
+			}
 		}
 	}
 
 	.Module-value {
 		padding: $space-sm;
+		display: flex;
+		align-items: center;
 
 		@include bp(md) {
-			padding: $space;
+			display: block;
 		}
 
 		h3 {
-			position: absolute;
-			width: 100%;
-			left: 0;
-			top: 50%;
-			transform: translateY(-50%);
-			font-size: 2em;
+			flex: 1;
+			font-size: 4em;
+			margin-right: $space-sm;
 			font-weight: bold;
 			letter-spacing: -0.05em;
 			font-weight: lighter;
+			line-height: 1;
 
 			@include bp(md) {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
 				font-size: 5em;
+				margin: 0;
 			}
 		}
 
@@ -61,6 +71,13 @@
 	}
 
 	.Module-chart {
+		flex: 1;
+
+		.base {
+			stroke: lighten($color-neutral-dark, 5);
+			fill: none;
+		}
+
 		.value {
 			stroke: $color-primary;
 			transform: rotate(-90deg);
