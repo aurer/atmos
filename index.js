@@ -1,6 +1,6 @@
 const app = require('./app');
-const port = 8000;
+const config = require('./config.json')
 
-app.listen(port, () => {
-	console.log(`App running on port ${port}`);
+app.listen(config.port, () => {
+	console.log(`App running on port ${config.port}`);
 });

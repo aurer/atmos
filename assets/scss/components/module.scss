@@ -1,5 +1,5 @@
 .Modules {
-	padding: 1em;
+	padding: $space-sm;
 	align-items: right;
 
 	@include bp(md) {
@@ -13,10 +13,11 @@
 		background-color: $color-neutral-dark;
 		background-image: lineargradient(to bottom, $color-neutral-dark, darken($color-neutral-dark, 15%));
 		color: $color-white;
-		border-radius: .5em;
+		border-radius: 4px;
 		text-align: center;
 		position: relative;
-		margin-bottom: $space;
+		margin-bottom: $space-sm;
+		overflow: hidden;
 
 		@include bp(md) {
 			flex: 1;

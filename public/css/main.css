@@ -39,10 +39,8 @@ body {
   height: 100%;
   margin: 0;
   line-height: 1.5;
-  background-color: white;
-  color: black;
-  background: #2a2e41;
-  background-image: linear-gradient(to bottom, #272c3c, #1c1e28); }
+  color: white;
+  background: #2a2e41; }
 
 article,
 aside,
@@ -306,8 +304,12 @@ samp {
   font-family: monospace, monospace;
   font-size: .9em; }
 
+.Page {
+  max-width: 95em;
+  margin: auto; }
+
 .Modules {
-  padding: 1em;
+  padding: 0.75rem;
   align-items: right; }
   @media (min-width: 36em) {
     .Modules {
@@ -319,10 +321,11 @@ samp {
     background-color: #393e52;
     background-image: lineargradient(to bottom, #393e52, #1a1c25);
     color: white;
-    border-radius: .5em;
+    border-radius: 4px;
     text-align: center;
     position: relative;
-    margin-bottom: 1.5rem; }
+    margin-bottom: 0.75rem;
+    overflow: hidden; }
     @media (min-width: 36em) {
       .Modules .Module {
         flex: 1;
@@ -373,3 +376,17 @@ samp {
       transform-origin: 50%;
       fill: none;
       transition: stroke-dashoffset 1s; }
+
+.Chart {
+  margin: 0.75rem 0.75rem 0;
+  background-color: #393e52;
+  border-radius: 4px; }
+  .Chart h2 {
+    font-size: 1em;
+    padding: 0.75rem;
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.03);
+    text-align: center; }
+    @media (min-width: 36em) {
+      .Chart h2 {
+        margin-bottom: 0.75rem; } }

@@ -1,3 +1,10 @@
 {
-	"mock": false
+	"port": 8000,
+	"mock": false,
+	"database": {
+		"host": "localhost",
+		"user": "root",
+		"password": "",
+		"database": ""
+	}
 }
