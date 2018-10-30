@@ -23,6 +23,10 @@ cron.schedule('*/15 * * * *', async () => {
 app.get('/', async (req, res) => {
 	let data = config.mock ? await Sensor.mockValues() : await Sensor.getValues();
 	db.query('SELECT * FROM readings WHERE timestamp BETWEEN DATE_SUB(NOW(), INTERVAL 1 DAY) AND NOW() ORDER BY timestamp DESC', (err, readings) => {
+		if (err) {
+			console.log(err);
+			res.render('index', {data, readings:[]});
+		}
 		res.render('index', {data, readings});
 	});
 })
