@@ -5,30 +5,30 @@ const config = require('./config.json')
 const Sensor = require('./lib/sensor')
 const DB = require('./lib/db')
 const app = express()
-const db = new DB(config);
+const db = new DB(config)
 
 app.set('view engine', 'pug')
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Run cron job
 cron.schedule('*/15 * * * *', async () => {
-	let data = config.mock ? await Sensor.mockValues() : await Sensor.getValues();
+	let data = config.mock ? await Sensor.mockValues() : await Sensor.getValues()
 	db.query(`insert into readings (temperature,humidity,water,timestamp) values (${data.temperature}, ${data.humidity}, ${data.water}, now())`, (err, result, fields) => {
-		console.log(`CRON: Record values - ${data.temperature}, ${data.humidity}, ${data.water}`);
+		console.log(`CRON: Record values - ${data.temperature}, ${data.humidity}, ${data.water}`)
 	})
-});
+})
 
 // Routes
 app.get('/', async (req, res) => {
-	let data = config.mock ? await Sensor.mockValues() : await Sensor.getValues();
-	db.query('SELECT * FROM readings WHERE timestamp BETWEEN DATE_SUB(NOW(), INTERVAL 1 DAY) AND NOW() ORDER BY timestamp DESC', (err, readings) => {
+	let data = config.mock ? await Sensor.mockValues() : await Sensor.getValues()
+	db.query('SELECT * FROM readings WHERE timestamp BETWEEN DATE_SUB(NOW(), INTERVAL 1 DAY) AND NOW() ORDER BY timestamp ASC', (err, readings) => {
 		if (err) {
-			console.log(err);
-			res.render('index', {data, readings:[]});
+			console.log(err)
+			res.render('charts', {data, readings:[]})
 		}
-		res.render('index', {data, readings});
-	});
+		res.render('charts', {data, readings})
+	})
 })
 
-module.exports = app;
+module.exports = app
