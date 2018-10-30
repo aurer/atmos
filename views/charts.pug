@@ -15,11 +15,11 @@ html(lang="en")
 				script
 					| let times = [
 					each reading in readings
-						|'#{reading.timestamp}',					
+						|'#{reading.timestamp}',
 					|]
 					|let values = [
 					each reading in readings
-						|	{temperature: #{reading.temperature}, humidity: #{reading.humidity}, water: #{reading.water}},					
+						|	{temperature: #{reading.temperature}, humidity: #{reading.humidity}, water: #{reading.water}},
 					|]
 			.Modules
 				.Module.Module--temperature(style="--value:"+data.temperature, data-value=data.temperature)

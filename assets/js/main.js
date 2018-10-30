@@ -36,37 +36,40 @@ const Modules = {
 
 		var ctx = document.getElementById("Chart").getContext('2d');
 		var myChart = new Chart(ctx, {
-		    type: 'line',
-		    data: {
-		        labels: labels,
-		        datasets: [{
-		            label: 'Temperature',
-		            data: temperatures,
-		            backgroundColor: 'transparent',
-		            borderColor: 'rgba(255,99,132,1)',
-		            borderWidth: 1
-		        },{
-		            label: 'Humidity',
-		            data: humidities,
-		            backgroundColor: 'transparent',
-		            borderColor: 'rgba(64,144,253,1)',
-		            borderWidth: 1
-		        },{
-		            label: 'Water',
-		            data: waters,
-		            backgroundColor: 'transparent',
-		            borderColor: 'rgba(84,164,255,1)',
-		            borderWidth: 1
-		        }
-											]
-		    },
+			type: 'line',
+			responsive: true,
+			maintainAspectRatio: false,
+			data: {
+				labels: labels,
+				datasets: [{
+					label: 'Temperature',
+					data: temperatures,
+					backgroundColor: 'transparent',
+					borderColor: '#ff6384',
+					borderWidth: 1
+				},
+				{
+					label: 'Humidity',
+					data: humidities,
+					backgroundColor: 'transparent',
+					borderColor: '#f9ab41',
+					borderWidth: 1
+				},
+				{
+					label: 'Water',
+					data: waters,
+					backgroundColor: 'transparent',
+					borderColor: '#4090fd',
+					borderWidth: 1
+				}]
+			},
 				options: {
-		        scales: {
-		            yAxes: [{
-		                ticks: {min : 0, max: 100}
-		            }]
-		        }
-		    }
+				scales: {
+					yAxes: [{
+						ticks: {min : 0, max: 100}
+					}]
+				}
+			}
 		});
 	}
 }

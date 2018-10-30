@@ -339,6 +339,12 @@ samp {
       @media (min-width: 36em) {
         .Modules .Module h2 {
           margin-bottom: 0.75rem; } }
+    .Modules .Module--temperature .Module-chart .value {
+      stroke: #ff6384; }
+    .Modules .Module--humidity .Module-chart .value {
+      stroke: #f9ab41; }
+    .Modules .Module--water .Module-chart .value {
+      stroke: #4090fd; }
   .Modules .Module-value {
     padding: 0.75rem;
     display: flex;

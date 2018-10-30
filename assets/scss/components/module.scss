@@ -35,6 +35,30 @@
 				margin-bottom: $space-sm;
 			}
 		}
+
+		&--temperature {
+			.Module-chart {
+				.value {
+					stroke: #ff6384;
+				}
+			}
+		}
+
+		&--humidity {
+			.Module-chart {
+				.value {
+					stroke: #f9ab41;
+				}
+			}
+		}
+
+		&--water {
+			.Module-chart {
+				.value {
+					stroke: #4090fd;
+				}
+			}
+		}
 	}
 
 	.Module-value {
