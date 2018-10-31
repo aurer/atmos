@@ -1,0 +1,70 @@
+.Meter {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	&-title {
+		flex: 1;
+		margin: 0 $space-sm 0 0;
+		text-align: center;
+		font-weight: 300;
+		font-size: 3em;
+		letter-spacing: -0.05em;
+	}
+
+	&-display {
+		height: 6em;
+		height: 15vh;
+
+		&-base,
+		&-value {
+			transform: rotate(-90deg);
+			transform-origin: center;
+			fill: none;
+		}
+
+		&-base {
+		}
+		stroke: $color-neutral-darker;
+
+		&-value {
+			stroke: $color-neutral;
+		}
+	}
+
+	@include bp(md) {
+		display: block;
+		position: relative;
+
+		&-title {
+			position: absolute;
+			left: $space;
+			right: $space;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&-display {
+			height: auto;
+		}
+	}
+}
+
+.Panel--airTemperature {
+	.Meter-display-value {
+		stroke: #00e8a6;
+	}
+}
+
+.Panel--airHumidity {
+	.Meter-display-value {
+		stroke: #b466ff;
+	}
+}
+
+.Panel--waterTemperature {
+	.Meter-display-value {
+		stroke: #4090fd;
+	}
+}

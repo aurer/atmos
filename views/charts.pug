@@ -1,51 +1,21 @@
-doctype html
-html(lang="en")
-	head
-		meta(charset="utf-8")
-		meta(name="viewport", content="width=device-width,initial-scale=1.0")
-		meta(name="description", content="Atmospheric information center")
-		title Atmos
-		link(rel="icon", href="/favicon.png")
-		link(rel="stylesheet", href="/css/main.css")
-	body
-		.Page
-			.Chart
-				h2 Recent changes
-				canvas(id="Chart" width="100%" height="40")
-				script
-					| let times = [
-					each reading in readings
-						|'#{reading.timestamp}',
-					|]
-					|let values = [
-					each reading in readings
-						|	{temperature: #{reading.temperature}, humidity: #{reading.humidity}, water: #{reading.water}},
-					|]
-			.Modules
-				.Module.Module--temperature(style="--value:"+data.temperature, data-value=data.temperature)
-					h2 Temperature
-					.Module-value
-						h3 #{data.temperature}
-						<svg class="Module-chart" viewbox="0 0 100 100">
-							<circle class="base" cx="50" cy="50" r="47" stroke-width="6"></circle>
-							<circle class="value" cx="50" cy="50" r="47" stroke-width="6"></circle>
-						</svg>
+extends layout/default
 
-				.Module.Module--humidity(style="--value:"+data.humidity, data-value=data.humidity)
-					h2 Humidity
-					.Module-value
-						h3 #{data.humidity}
-						<svg class="Module-chart" viewbox="0 0 100 100">
-							<circle class="base" cx="50" cy="50" r="47" stroke-width="6"></circle>
-							<circle class="value" cx="50" cy="50" r="47" stroke-width="6"></circle>
-						</svg>
-				.Module.Module--water(style="--value:"+data.water, data-value=data.water)
-					h2 Water
-					.Module-value
-						h3 #{data.water}
-						<svg class="Module-chart" viewbox="0 0 100 100">
-							<circle class="base" cx="50" cy="50" r="47" stroke-width="6"></circle>
-							<circle class="value" cx="50" cy="50" r="47" stroke-width="6"></circle>
-						</svg>
-		script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js")
-		script(src="/js/main.js")
+block primary
+	- let times = readings.map(r => r.time)
+	- let temperature = readings.map(r => r.temperature)
+	- let humidity = readings.map(r => r.humidity)
+	- let water = readings.map(r => r.water)
+	.Panels
+		+Panel("Recent changes")
+			canvas(
+				id="Chart"
+				width="100%"
+				height="40"
+				data-times=times.join(',')
+				data-temperature=temperature.join(',')
+				data-humidity=humidity.join(',')
+				data-water=water.join(',')
+			)
+		+Panel-svg("Air Temperature", data.temperature)
+		+Panel-svg("Air Humidity", data.humidity)
+		+Panel-svg("Water temperature", data.water)

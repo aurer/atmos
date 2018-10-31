@@ -1,21 +1,17 @@
 .Chart {
-  margin: $space-sm $space-sm 0;
-  background-color: $color-neutral-dark;
-  border-radius: 4px;
-  
-  h2 {
-    font-size: 1em;
-    padding: $space-sm;
-    margin-bottom: 0;
-    background-color: rgba($color-white, .03);
-    text-align: center;
+	margin: $space-sm $space-sm 0;
+	background-color: $color-neutral-dark;
+	border-radius: 4px;
 
-    @include bp(md) {
-      margin-bottom: $space-sm;
-    }
-  }
+	h2 {
+		font-size: 1em;
+		padding: $space-sm;
+		margin-bottom: 0;
+		background-color: rgba($color-white, .03);
+		text-align: center;
 
-  canvas {
-
-  }
+		@include bp(md) {
+			margin-bottom: $space-sm;
+		}
+	}
 }

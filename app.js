@@ -22,7 +22,18 @@ cron.schedule('*/15 * * * *', async () => {
 // Routes
 app.get('/', async (req, res) => {
 	let data = config.mock ? await Sensor.mockValues() : await Sensor.getValues()
-	db.query('SELECT * FROM readings WHERE timestamp BETWEEN DATE_SUB(NOW(), INTERVAL 1 DAY) AND NOW() ORDER BY timestamp ASC', (err, readings) => {
+	let query = `
+		SELECT
+			CONCAT(hour(timestamp), ':', minute(timestamp)) as time,
+			temperature,
+			humidity,
+			water
+		FROM readings
+		WHERE
+			timestamp BETWEEN DATE_SUB(NOW(), INTERVAL 1 DAY) AND NOW()
+		ORDER BY timestamp ASC;
+	`;
+	db.query(query, (err, readings) => {
 		if (err) {
 			console.log(err)
 			res.render('charts', {data, readings:[]})

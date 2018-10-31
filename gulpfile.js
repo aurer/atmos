@@ -2,6 +2,7 @@ var server = require('browser-sync');
 var gulp = require('gulp');
 var scss = require('gulp-sass');
 var plumber = require('gulp-plumber');
+var config = require('./config.json');
 
 var src = './assets';
 var dist = './public';
@@ -32,7 +33,7 @@ gulp.task('watch', function() {
 // Setup local server with injection
 gulp.task('serve', function() {
 	server.init({
-		proxy: 'localhost:8000',
+		proxy: 'localhost:' + config.port,
 		notify: false
 	});
 });
