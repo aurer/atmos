@@ -7,15 +7,14 @@ block primary
 	- let water = readings.map(r => r.water)
 	.Panels
 		+Panel("Recent changes")
-			canvas(
-				id="Chart"
-				width="100%"
-				height="40"
-				data-times=times.join(',')
-				data-temperature=temperature.join(',')
-				data-humidity=humidity.join(',')
-				data-water=water.join(',')
-			)
+			.ChartContainer
+				canvas(
+					id="Chart"
+					data-times=times.join(',')
+					data-temperature=temperature.join(',')
+					data-humidity=humidity.join(',')
+					data-water=water.join(',')
+				)
 		+Panel-svg("Air Temperature", data.temperature)
 		+Panel-svg("Air Humidity", data.humidity)
 		+Panel-svg("Water temperature", data.water)

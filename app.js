@@ -30,7 +30,7 @@ app.get('/', async (req, res) => {
 			water
 		FROM readings
 		WHERE
-			timestamp BETWEEN DATE_SUB(NOW(), INTERVAL 1 DAY) AND NOW()
+			timestamp BETWEEN DATE_SUB(NOW(), INTERVAL 12 HOUR) AND NOW()
 		ORDER BY timestamp ASC;
 	`;
 	db.query(query, (err, readings) => {

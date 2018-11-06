@@ -2,6 +2,9 @@ const Modules = {
 	init: function() {
 		this.setModuleValues();
 		this.renderChart();
+		// window.onbeforeprint = (e) => {
+		// 	console.log('Print');
+		// }
 	},
 
 	setModuleValues: function() {
@@ -19,48 +22,63 @@ const Modules = {
 		}
 	},
 
+	getChartData: function() {
+		const chart = document.querySelector('#Chart');
+		const data = {
+			labels: chart.dataset.times.split(','),
+			temperature: chart.dataset.temperature.split(','),
+			humidity: chart.dataset.humidity.split(','),
+			water: chart.dataset.water.split(',')
+		}
+		const mq = window.matchMedia( "(max-width: 800px)" );
+
+		if (mq.matches) {
+			data.labels = data.labels.slice(data.labels.length-20, data.labels.length)
+			data.temperature = data.temperature.slice(data.temperature.length-20, data.temperature.length)
+			data.humidity = data.humidity.slice(data.humidity.length-20, data.humidity.length)
+			data.water = data.water.slice(data.water.length-20, data.water.length)
+		}
+
+		return data;
+	},
+
 	renderChart: function() {
 		const chart = document.querySelector('#Chart');
-		const labels = chart.dataset.times.split(',');
-		const temperature = chart.dataset.temperature.split(',');
-		const humidity = chart.dataset.humidity.split(',');
-		const water = chart.dataset.water.split(',');
-
+		const data = this.getChartData();
 		const ctx = document.getElementById("Chart").getContext('2d');
-		const myChart = new Chart(ctx, {
-			type: 'line',
-			responsive: true,
-			maintainAspectRatio: false,
+		new Chart.Line('Chart', {
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				scales: {
+					yAxes: [{
+						ticks: {min : 0, max: 100}
+					}]
+				}
+			},
 			data: {
-				labels: labels,
+				labels: data.labels,
 				datasets: [{
-					label: 'Air Temperature',
-					data: temperature,
+					label: 'Air Temp',
+					data: data.temperature,
 					backgroundColor: 'transparent',
 					borderColor: '#00e8a6',
 					borderWidth: 1
 				},
 				{
 					label: 'Air Humidity',
-					data: humidity,
+					data: data.humidity,
 					backgroundColor: 'transparent',
 					borderColor: '#b466ff',
 					borderWidth: 1
 				},
 				{
-					label: 'Water temperature',
-					data: water,
+					label: 'Water temp',
+					data: data.water,
 					backgroundColor: 'transparent',
 					borderColor: '#4090fd',
 					borderWidth: 1
 				}]
-			},
-				options: {
-				scales: {
-					yAxes: [{
-						ticks: {min : 0, max: 100}
-					}]
-				}
 			}
 		});
 	}

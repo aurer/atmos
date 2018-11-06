@@ -1,8 +1,17 @@
+.ChartContainer {
+	height: 50vh;
+
+	@include bp(md) {
+		height: 40vh;
+	}
+}
+
 .Chart {
 	margin: $space-sm $space-sm 0;
 	background-color: $color-neutral-dark;
 	border-radius: 4px;
-
+	position: relative;
+	
 	h2 {
 		font-size: 1em;
 		padding: $space-sm;
