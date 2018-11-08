@@ -11,6 +11,15 @@
 		font-weight: 300;
 		font-size: 3em;
 		letter-spacing: -0.05em;
+		line-height: 1.1;
+
+		small {
+			display: block;
+			font-size: .25em;
+			color: $color-neutral;
+			letter-spacing: 0;
+			font-weight: bold;
+		}
 	}
 
 	&-display {
@@ -49,6 +58,16 @@
 			height: auto;
 		}
 	}
+
+	@include bp(lg) {
+		&-title {
+			font-size: 4em;
+
+			small {
+
+			}
+		}
+	}
 }
 
 .Panel--airTemperature {
@@ -64,6 +83,25 @@
 }
 
 .Panel--waterTemperature {
+	.Meter-display-value {
+		stroke: #4090fd;
+	}
+}
+
+
+.Panel--outsideTemperature {
+	.Meter-display-value {
+		stroke: #4090fd;
+	}
+}
+
+.Panel--outsideHumidity {
+	.Meter-display-value {
+		stroke: #4090fd;
+	}
+}
+
+.Panel--feelsLike {
 	.Meter-display-value {
 		stroke: #4090fd;
 	}

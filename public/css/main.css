@@ -122,7 +122,14 @@ samp {
     text-align: center;
     font-weight: 300;
     font-size: 3em;
-    letter-spacing: -0.05em; }
+    letter-spacing: -0.05em;
+    line-height: 1.1; }
+    .Meter-title small {
+      display: block;
+      font-size: .25em;
+      color: #717480;
+      letter-spacing: 0;
+      font-weight: bold; }
   .Meter-display {
     height: 6em;
     height: 15vh;
@@ -145,6 +152,9 @@ samp {
         transform: translateY(-50%); }
       .Meter-display {
         height: auto; } }
+  @media (min-width: 52em) {
+    .Meter-title {
+      font-size: 4em; } }
 
 .Panel--airTemperature .Meter-display-value {
   stroke: #00e8a6; }
@@ -153,6 +163,15 @@ samp {
   stroke: #b466ff; }
 
 .Panel--waterTemperature .Meter-display-value {
+  stroke: #4090fd; }
+
+.Panel--outsideTemperature .Meter-display-value {
+  stroke: #4090fd; }
+
+.Panel--outsideHumidity .Meter-display-value {
+  stroke: #4090fd; }
+
+.Panel--feelsLike .Meter-display-value {
   stroke: #4090fd; }
 
 .ChartContainer {
