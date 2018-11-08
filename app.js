@@ -18,7 +18,7 @@ cron.schedule('*/15 * * * *', async () => {
 	let weather = await Weather.getValues();
 	weather = JSON.parse(weather);
 	db.query(`insert into readings (temperature,humidity,water,weather_temperature, weather_humidity, timestamp) values (${data.temperature}, ${data.humidity}, ${data.water}, ${weather.current.temp_c}, ${weather.current.humidity}, now())`, (err, result) => {
-		console.log(`CRON: Record values - ${data.temperature}, ${data.humidity}, ${data.water}`)
+		console.log(`CRON: Record values - ${data.temperature}, ${data.humidity}, ${data.water}, ${weather.current.temp_c}, ${weather.current.humidity},`)
 	})
 })
 
@@ -30,7 +30,9 @@ app.get('/', async (req, res) => {
 			CONCAT(hour(timestamp), ':', minute(timestamp)) as time,
 			temperature,
 			humidity,
-			water
+			water,
+			weather_temperature,
+			weather_humidity
 		FROM readings
 		WHERE
 			timestamp BETWEEN DATE_SUB(NOW(), INTERVAL 12 HOUR) AND NOW()

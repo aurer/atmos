@@ -26,7 +26,9 @@ const Modules = {
 			labels: chart.dataset.times.split(','),
 			temperature: chart.dataset.temperature.split(','),
 			humidity: chart.dataset.humidity.split(','),
-			water: chart.dataset.water.split(',')
+			water: chart.dataset.water.split(','),
+			weather_temperature: chart.dataset.weathertemperature.split(','),
+			weather_humidity: chart.dataset.weatherhumidity.split(',')
 		}
 		const mq = window.matchMedia( "(max-width: 800px)" );
 
@@ -35,6 +37,8 @@ const Modules = {
 			data.temperature = data.temperature.slice(data.temperature.length-20, data.temperature.length)
 			data.humidity = data.humidity.slice(data.humidity.length-20, data.humidity.length)
 			data.water = data.water.slice(data.water.length-20, data.water.length)
+			data.weather_temperature = data.weather_temperature.slice(data.weather_temperature.length-20, data.weather_temperature.length)
+			data.weather_humidity = data.weather_humidity.slice(data.weather_humidity.length-20, data.weather_humidity.length)
 		}
 
 		return data;
@@ -48,6 +52,7 @@ const Modules = {
 			options: {
 				responsive: true,
 				maintainAspectRatio: false,
+				spanGaps: false,
 				scales: {
 					yAxes: [{
 						ticks: {min : 0, max: 100}
@@ -75,6 +80,20 @@ const Modules = {
 					data: data.water,
 					backgroundColor: 'transparent',
 					borderColor: '#4090fd',
+					borderWidth: 1
+				},
+				{
+					label: 'Outside temp',
+					data: data.weather_temperature,
+					backgroundColor: 'transparent',
+					borderColor: '#e88f41',
+					borderWidth: 1
+				},
+				{
+					label: 'Outside humidity',
+					data: data.weather_humidity,
+					backgroundColor: 'transparent',
+					borderColor: '#5ddae8',
 					borderWidth: 1
 				}]
 			}

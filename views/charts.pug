@@ -5,6 +5,8 @@ block primary
 	- let temperature = readings.map(r => r.temperature)
 	- let humidity = readings.map(r => r.humidity)
 	- let water = readings.map(r => r.water)
+	- let weather_temperature = readings.map(r => r.weather_temperature)
+	- let weather_humidity = readings.map(r => r.weather_humidity)
 	.Panels
 		+Panel("Recent changes")
 			.ChartContainer
@@ -14,6 +16,8 @@ block primary
 					data-temperature=temperature.join(',')
 					data-humidity=humidity.join(',')
 					data-water=water.join(',')
+					data-weathertemperature=weather_temperature.join(',')
+					data-weatherhumidity=weather_humidity.join(',')
 				)
 		+Panel-svg("Air Temperature", data.temperature)
 		+Panel-svg("Air Humidity", data.humidity)
