@@ -3,6 +3,7 @@ const path = require('path')
 const cron = require('node-cron')
 const config = require('./config.json')
 const Sensor = require('./lib/sensor')
+const Weather = require('./lib/weather')
 const DB = require('./lib/db')
 const app = express()
 const db = new DB(config)
@@ -13,8 +14,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Run cron job
 cron.schedule('*/15 * * * *', async () => {
-	let data = config.mock ? await Sensor.mockValues() : await Sensor.getValues()
-	db.query(`insert into readings (temperature,humidity,water,timestamp) values (${data.temperature}, ${data.humidity}, ${data.water}, now())`, (err, result, fields) => {
+	let data = config.mock ? await Sensor.mockValues() : await Sensor.getValues();
+	let weather = await Weather.getValues();
+	weather = JSON.parse(weather);
+	db.query(`insert into readings (temperature,humidity,water,weather_temperature, weather_humidity, timestamp) values (${data.temperature}, ${data.humidity}, ${data.water}, ${weather.current.temp_c}, ${weather.current.humidity}, now())`, (err, result) => {
 		console.log(`CRON: Record values - ${data.temperature}, ${data.humidity}, ${data.water}`)
 	})
 })
@@ -31,8 +34,7 @@ app.get('/', async (req, res) => {
 		FROM readings
 		WHERE
 			timestamp BETWEEN DATE_SUB(NOW(), INTERVAL 12 HOUR) AND NOW()
-		ORDER BY timestamp ASC;
-	`;
+		ORDER BY timestamp ASC`;
 	db.query(query, (err, readings) => {
 		if (err) {
 			console.log(err)

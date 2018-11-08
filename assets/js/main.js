@@ -2,9 +2,7 @@ const Modules = {
 	init: function() {
 		this.setModuleValues();
 		this.renderChart();
-		// window.onbeforeprint = (e) => {
-		// 	console.log('Print');
-		// }
+		this.renderOutsideData();
 	},
 
 	setModuleValues: function() {
@@ -81,6 +79,21 @@ const Modules = {
 				}]
 			}
 		});
+	},
+
+	renderOutsideData: function() {
+		const endpoint = 'https://api.apixu.com/v1/current.json?key=333b732ec2314a45a09162013180811&q=Bury+St+Edmunds';
+		const airTemperaturePanel = document.querySelector('.Panel--airTemperature');
+		const airHumididtyPanel = document.querySelector('.Panel--airHumidity');
+
+		fetch(endpoint)
+			.then(data => data.json())
+			.then(data => {
+				const temp = data.current.temp_c;
+				const humidity = data.current.humidity;
+				airTemperaturePanel.querySelector('.Meter-title').innerHTML += '<small>'+temp+' outside</small>';
+				airHumididtyPanel.querySelector('.Meter-title').innerHTML += '<small>'+humidity+' outside</small>';
+			})
 	}
 }
 
