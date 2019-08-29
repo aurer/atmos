@@ -8,16 +8,16 @@
     "mysql": "^2.16.0",
     "node-cron": "^2.0.3",
     "node-dht-sensor": "0.0.34",
-    "pug": "^2.0.3",
+    "pug": "^2.0.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-plumber": "^1.2.0",
     "gulp-sass": "^4.0.2",
-    "sass": "^1.14.3"
+    "sass": "^1.22.10"
   },
   "scripts": {
     "dev": "gulp dev",
