@@ -8,7 +8,7 @@
     "mysql": "^2.16.0",
     "node-cron": "^2.0.3",
     "node-dht-sensor": "0.0.34",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   },
