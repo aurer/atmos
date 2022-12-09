@@ -4,7 +4,7 @@
   "description": "Vinshlouser! VINSHLOUSER!!",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "mysql": "^2.16.0",
     "node-cron": "^2.0.3",
     "node-dht-sensor": "0.0.34",
