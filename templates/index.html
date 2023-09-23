@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atmos</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+
+<body>
+  <div class="page">
+    <div class="data">
+      <div class="stat air">
+        <span class="value">{{ data.air }}</span>
+        <span class="label">Air</span>
+      </div>
+      <div class="stat water">
+        <span class="value">{{ data.water }}</span>
+        <span class="label">Water</span>
+      </div>
+      <div class="stat humidity">
+        <span class="value">{{ data.humidity }}</span>
+        <span class="label">Humidity</span>
+      </div>
+      <div class="controls">
+        <div class="items">
+          <label for="control-light">Light</label>
+          {% if state == 1 %}
+          <a class="off" href="/on">turn on</a>
+          {% else %}
+          <a class="on" href="/off">turn off</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="video">
+      <iframe src="http://atmos-2.local:8081"></iframe>
+    </div>
+  </div>
+</body>
+
+</html>
