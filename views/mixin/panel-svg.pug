@@ -1,8 +1,0 @@
-include panel
-mixin Panel-svg(title, value)
-	+Panel(title)
-		.Meter
-			h3.Meter-title= value
-			svg(class="Meter-display" viewbox="0 0 100 100")
-				circle(class="Meter-display-base" cx="50" cy="50" r="47" stroke-width="6")
-				circle(class="Meter-display-value" cx="50" cy="50" r="47" stroke-width="6" data-value=value)
