@@ -1,7 +1,0 @@
-mixin Panel(title)
-	- var classname = 'Panel--' + title.toLowerCase().replace(/\s\w/, n => n.replace(/\s+/, '').toUpperCase())
-	.Panel(class=classname)
-		.Panel-header= title
-		.Panel-body
-			if block
-				block

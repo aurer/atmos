@@ -1,9 +1,0 @@
-.Page {
-	padding: $space-sm;
-	margin: auto;
-	max-width: map-get($widths, xl);
-
-	@include bp(lg) {
-		padding: $space;
-	}
-}
