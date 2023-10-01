@@ -18,4 +18,4 @@ It expects to have serial input via USB containing three float value readings se
 
 I use an Arduino to capture data from a DHT22 for air temperatur and humidity, and a DS18B20 for water temperature. This data is sent via `Serial.print` in the format above over USB.
 
-It also expects a webcam feed from Motion running on port 8081.
+It also expects a webcam feed from Motion on the url "/stream".
