@@ -7,9 +7,11 @@ def get_readings():
   s = out.split(",")
   
   return {
-    "air": s[0],
-    "humidity": s[1],
-    "water": s[2],
+    "air": s[0].strip(),
+    "water": s[1].strip(),
+    "humidity": s[2].strip(),
+    "co2": s[3].strip(),
+    "water_level": s[4].strip()
   }
 
 def get_raw_output():

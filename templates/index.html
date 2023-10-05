@@ -17,31 +17,35 @@
   <div class="page">
     <div class="data">
       <div class="stat air">
-        <span class="value">{{ data.air }}</span>
-        <span class="label">Air</span>
+        <span class="value">{{ data.air or '0.00' }}</span>
+        <span class="label">Air Temp</span>
       </div>
       <div class="stat water">
-        <span class="value">{{ data.water }}</span>
-        <span class="label">Water</span>
+        <span class="value">{{ data.water or '0.00' }}</span>
+        <span class="label">Water Temp</span>
       </div>
       <div class="stat humidity">
-        <span class="value">{{ data.humidity }}</span>
+        <span class="value">{{ data.humidity or '0.00' }}</span>
         <span class="label">Humidity</span>
       </div>
-      <div class="controls">
-        <div class="items">
-          <label for="control-light">Light</label>
-          {% if state == 1 %}
-          <a class="off" href="/on">turn on</a>
-          {% else %}
-          <a class="on" href="/off">turn off</a>
-          {% endif %}
-        </div>
+      <div class="stat co2">
+        <span class="value">{{ data.co2 or '0.00' }}</span>
+        <span class="label">CO2</span>
+      </div>
+      <div class="stat level" data-level="{{ data.water_level }}">
+				<span class="value">
+					{% if data.water_level == "0" %}
+						LOW
+					{% else %}
+						OK
+					{% endif %}
+				</span>
+				<span class="label">Water level</span>
       </div>
     </div>
     <div class="video">
-			<a href=http://atmos-2.local/stream>
-				<img src=http://atmos-2.local/stream border=0 width=25%>
+			<a href="http://atmos-2.local/stream">
+				<img src="http://atmos-2.local/stream" />
 			</a>
     </div>
   </div>
