@@ -11,7 +11,8 @@ def get_readings():
     "water": s[1].strip(),
     "humidity": s[2].strip(),
     "co2": s[3].strip(),
-    "water_level": s[4].strip()
+    "water_level": s[4].strip(),
+    "ph": s[5].strip(),
   }
 
 def get_raw_output():

@@ -63,7 +63,7 @@
 		
 		&:before {
 			position: absolute;
-			right: 0;
+			right: -0.1em;
 			top: 0;
 			font-size: 3rem;
 			font-size: clamp(1rem, 5vw, 3rem);
@@ -95,6 +95,27 @@
 			
 			&:before {
 				content: '%';
+			}
+		}
+
+		&.co2 {
+			--color: #9346df;
+			
+			&:before {
+				content: 'ppm';
+				font-size: 1.5rem;
+			}
+		}
+
+		&.ph {
+			--color: #f7dd00;
+		}
+
+		&.level[data-level="0"] {
+			color: #952916;
+
+			.label {
+				color: inherit;
 			}
 		}
 	}
