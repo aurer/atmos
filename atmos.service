@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn
+After=network.target
+
+[Service]
+User=phil
+Group=nginx
+WorkingDirectory=/home/phil/atmos
+ExecStart=/usr/local/bin/gunicorn --workers 3 --bind unix:atmos.sock -m 007 app:app
+
+[Install]
+WantedBy=multi-user.target
