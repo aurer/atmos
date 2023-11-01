@@ -21,22 +21,15 @@
 
 .video {
 	flex: 1;
-	
-	& iframe {
-		border: none;
-		width: 100%;
-		max-width: 720px;
-		background-color: #000;
-		aspect-ratio: 9 / 16;
-	}
-
-	& a {
-		display: block;
-	}
 
 	& img {
 		display: block;
 		width: 100%;
+		cursor: pointer;
+
+		&.loading {
+			opacity: 0.5;
+		}
 	}
 }
 

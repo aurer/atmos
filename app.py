@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, jsonify
 import RPi.GPIO as GPIO
 import sensors as sen
+import camera
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -30,6 +31,10 @@ def off():
 @app.route("/sensors")
 def sensors():
   return sen.get_readings()
+
+@app.route("/capture")
+def capture():
+  return camera.capture()
   
 if __name__ == "__main__":
   app.run(host="0.0.0.0", port="5000")

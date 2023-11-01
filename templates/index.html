@@ -11,23 +11,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <script defer>
-		async function getReadings() {
-			return await fetch("/sensors").then(r => r.json());
-		}
-
-		async function updateReadings() {
-			const readings = await getReadings();
-			document.querySelector('.air .value').innerText = readings.air;
-			document.querySelector('.water .value').innerText = readings.water;
-			document.querySelector('.humidity .value').innerText = readings.humidity;
-			document.querySelector('.co2 .value').innerText = readings.co2;
-			document.querySelector('.level').dataset.level = readings.water_level;
-			document.querySelector('.level .value') = readings.water_level == "0" ? 'LOW' : 'OK';
-		}
-
-		setInterval(updateReadings, 4000);
-  </script>
 </head>
 
 <body>
@@ -65,11 +48,27 @@
       </div>
     </div>
     <div class="video">
-				<a href="/stream">
-				<img src="/stream" />
-			</a>
+			<img id="image" src="/static/capture.jpg" />
     </div>
   </div>
+  <script src="/static/app.js"></script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
