@@ -5,8 +5,8 @@ def capture():
     "libcamera-jpeg", 
     "-o", "static/capture.jpg", 
     "-t", "1",
-    "--width", "720",
-    "--height", "1080"
+    "--width", "1280",
+    "--height", "1280"
     ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
   out, err = process.communicate()
   return out

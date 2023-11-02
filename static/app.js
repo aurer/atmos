@@ -14,21 +14,19 @@ async function updateReadings() {
 
 setInterval(updateReadings, 4000);
 
-async function capture() {
-        return await fetch("/capture");
-}
+const capture = () => fetch("/capture");
 
-const img = document.querySelector('#image');
-img.addEventListener("click", (e) => {
-        e.preventDefault();
-				const img = e.target
-				img.classList.add('loading')
-        capture().then(() => {
-                const img = document.querySelector("img")
-                const timestamp = new Date().getTime();
-                const src = '/static/capture.jpg#' + timestamp;
-                img.src = src;
-        }).finally(() => {
-        	img.classList.remove('loading')
-        })
+const visual = document.querySelector('.visual');
+visual.addEventListener("click", (e) => {
+	e.preventDefault();
+	visual.classList.add('loading')
+	capture()
+		.then(() => {
+			const img = visual.querySelector("img")
+			const timestamp = new Date().getTime();
+			const src = '/static/capture.jpg?timestamp=' + timestamp;
+			img.src = src;
+		}).finally(() => {
+			visual.classList.remove('loading')
+		})
 })

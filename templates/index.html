@@ -15,41 +15,43 @@
 
 <body>
   <div class="page">
-    <div class="data">
-      <div class="stat air">
-        <span class="value">{{ data.air or '0.00' }}</span>
-        <span class="label">Air Temp</span>
-      </div>
-      <div class="stat water">
-        <span class="value">{{ data.water or '0.00' }}</span>
-        <span class="label">Water Temp</span>
-      </div>
-      <div class="stat humidity">
-        <span class="value">{{ data.humidity or '0.00' }}</span>
-        <span class="label">Humidity</span>
-      </div>
-      <div class="stat co2">
-        <span class="value">{{ data.co2 or '0.00' }}</span>
-        <span class="label">CO2</span>
-      </div>
-      <div class="stat ph">
-        <span class="value">{{ data.ph or '0.00' }}</span>
-        <span class="label">PH</span>
-      </div>
-      <div class="stat level" data-level="{{ data.water_level }}">
-				<span class="value">
-					{% if data.water_level == "0" %}
-						LOW
-					{% else %}
-						OK
-					{% endif %}
-				</span>
-				<span class="label">Water level</span>
-      </div>
-    </div>
-    <div class="video">
-			<img id="image" src="/static/capture.jpg" />
-    </div>
+		<main>
+	    <div class="data">
+	      <div class="stat air">
+	        <span class="label">Air Temp</span>
+	        <span class="value">{{ data.air or '0.00' }}</span>
+	      </div>
+	      <div class="stat water">
+	        <span class="label">Water Temp</span>
+	        <span class="value">{{ data.water or '0.00' }}</span>
+	      </div>
+	      <div class="stat humidity">
+	        <span class="label">Humidity</span>
+	        <span class="value">{{ data.humidity or '0.00' }}</span>
+	      </div>
+	      <div class="stat co2">
+	        <span class="label">CO2</span>
+	        <span class="value">{{ data.co2 or '0.00' }}</span>
+	      </div>
+	      <div class="stat ph">
+	        <span class="label">PH</span>
+	        <span class="value">{{ data.ph or '0.00' }}</span>
+	      </div>
+	      <div class="stat level" data-level="{{ data.water_level }}">
+					<span class="label">Water level</span>
+					<span class="value">
+						{% if data.water_level == "0" %}
+							LOW
+						{% else %}
+							OK
+						{% endif %}
+					</span>
+	      </div>
+	    </div>
+	    <div class="visual" style="background-image: url(/static/capture.jpg)">
+				<img id="image" src="/static/capture.jpg" />
+	    </div>
+	  </main>
   </div>
   <script src="/static/app.js"></script>
 </body>
