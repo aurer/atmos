@@ -26,6 +26,7 @@ visual.addEventListener("click", (e) => {
 			const timestamp = new Date().getTime();
 			const src = '/static/capture.jpg?timestamp=' + timestamp;
 			img.src = src;
+			visual.style.backgroundImage = `url(${src})`;
 		}).finally(() => {
 			visual.classList.remove('loading')
 		})
