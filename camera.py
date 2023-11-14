@@ -3,7 +3,7 @@ import subprocess
 def capture():
   process = subprocess.Popen([
     "libcamera-jpeg", 
-    "-o", "static/capture.jpg", 
+    "-o", "static/media/capture.jpg", 
     "-t", "1",
     "--width", "1280",
     "--height", "1280"

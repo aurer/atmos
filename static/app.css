@@ -92,3 +92,14 @@ body {
 		opacity: 0.5;
 	}
 }
+
+.videolink {
+	position: absolute;
+	left: .5rem;
+	bottom: .5rem;
+	background: rgb(0 0 0 / 0.5);
+	color: #fff;
+	text-decoration: none;
+	padding: .3rem .6rem;
+	border-radius: 4px;
+}
